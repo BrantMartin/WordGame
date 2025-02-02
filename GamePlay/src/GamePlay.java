@@ -5,7 +5,7 @@ public class GamePlay {
 
     public static void main(String[] args) {
         String playAgain = "y";
-        while (playAgain == "y") {
+        while (playAgain.equals("y")) {
             Scanner scan = new Scanner(System.in);
             String fName = "";
             String lName = "";
