@@ -5,8 +5,8 @@ public class GamePlay {
 
     public static void main(String[] args) {
         String playAgain = "y";
+        Scanner scan = new Scanner(System.in);
         while (playAgain.equals("y")) {
-            Scanner scan = new Scanner(System.in);
             String fName = "";
             String lName = "";
             Hosts host = new Hosts("Bill", "Swiftman");
@@ -33,5 +33,6 @@ public class GamePlay {
             playAgain = scan.nextLine();
             playAgain.toLowerCase();
         }
+        scan.close();
     }
 }
