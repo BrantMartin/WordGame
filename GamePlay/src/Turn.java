@@ -1,30 +1,41 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class Turn {
     public boolean takeTurn(Players player, Hosts host) {
         Scanner scan = new Scanner(System.in);
+        Random rand = new Random();
+        Physical physPrize = new Physical();
+        Money monPrize = new Money();
         int numToGuess = host.getRandomNum();
         int guess = 500;
+        int prizeType = rand.nextInt(100) + 1;
 
         if (!player.getLastName().equals("")) {
-        System.out.println(host.getFirstName() + " " + host.getLastName() + " says, \"" + player.getFirstName() + " "
-                + player.getLastName() + ", enter your guess for my random number between 0 and 100\"");
-        }
-        else {
-        System.out.println(host.getFirstName() + " " + host.getLastName() + "says, \"" + player.getFirstName() + ", enter your guess for my random number between 0 and 100\"");
+            System.out
+                    .println(host.getFirstName() + " " + host.getLastName() + " says, \"" + player.getFirstName() + " "
+                            + player.getLastName() + ", enter your guess for my random number between 0 and 100\"");
+        } else {
+            System.out.println(host.getFirstName() + " " + host.getLastName() + "says, \"" + player.getFirstName()
+                    + ", enter your guess for my random number between 0 and 100\"");
         }
         guess = scan.nextInt();
-        host.compareNumber(guess);
-        if (guess == numToGuess) {
-            System.out.println("You win $1000.00");
-            player.setMoney(player.getMoney() + 1000);
-            System.out.println(player.toString());
-            return true;
+        if (prizeType % 2 == 0) {
+            if (guess == numToGuess) {
+                monPrize.setMoney(physPrize.displayWinnings(player, host.compareNumber(guess)));
+                return true;
+            } else {
+                monPrize.setMoney(physPrize.displayWinnings(player, host.compareNumber(guess)));
+                return false;
+            }
         } else {
-            System.out.println("You lose $200.00");
-            player.setMoney(player.getMoney() - 200);
-            System.out.println(player.toString());
-            return false;
+            if (guess == numToGuess) {
+                monPrize.setMoney(monPrize.displayWinnings(player, host.compareNumber(guess)));
+                return true;
+            } else {
+                monPrize.setMoney(monPrize.displayWinnings(player, host.compareNumber(guess)));
+                return false;
+            }
         }
     }
 }
