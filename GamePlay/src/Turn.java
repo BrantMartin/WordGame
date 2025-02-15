@@ -2,8 +2,8 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Turn {
+    static Scanner scan = new Scanner(System.in);
     public boolean takeTurn(Players player, Hosts host) {
-        Scanner scan = new Scanner(System.in);
         Random rand = new Random();
         Physical physPrize = new Physical();
         Money monPrize = new Money();
