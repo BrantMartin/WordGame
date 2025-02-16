@@ -1,5 +1,5 @@
 public class Hosts extends Person{
-    private Numbers rNum = new Numbers();
+    private static Phrases gamePhrase = new Phrases();
 
     Hosts(){
         super();
@@ -8,17 +8,22 @@ public class Hosts extends Person{
     Hosts(String fName, String lName) {
         super(fName, lName);
     }
+    
+    public void setPhrase(String newPhrase) {
+        gamePhrase.setGamePhrase(newPhrase);
+        gamePhrase.setPlayingPhrase(gamePhrase.getGamePhrase());
+    }
+    
+    public String getPhrase() {
+        return gamePhrase.getGamePhrase();
+    }
+    
+    public String getPlayingPhrase() {
+        return gamePhrase.getPlayingPhrase();
+    }
 
-    public void randomizeNum() {
-        rNum.generateNumber();        
-    }
-    
-    public int getRandomNum() {
-        return rNum.getRandomNum();
-    }
-    
-    public boolean compareNumber(int guess) {
-        return rNum.compareNumber(guess);
+    public boolean findLetters(String letter) throws MultipleLettersException {
+        return gamePhrase.findLetters(letter);
     }
 
     public String toString() {

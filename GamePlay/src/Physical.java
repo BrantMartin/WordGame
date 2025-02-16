@@ -12,13 +12,13 @@ public class Physical implements Award{
     public int displayWinnings(Players player, boolean bool) {
         if (bool == true) {
             if (!player.getLastName().equals("")) {
-                System.out.println(player.getFirstName() + " " + player.getLastName() + " that is correct!");
+                System.out.println(player.getFirstName() + " " + player.getLastName() + " that letter is in the phrase!");
                 prize = prizes[getRandomPrize()];
                 System.out.println("Your prize is a " + prize + ".");
                 return 0;
             }
             else {
-                System.out.println(player.getFirstName() + " that is correct!");
+                System.out.println(player.getFirstName() + " that letter is in the phrase!");
                 prize = prizes[getRandomPrize()];
                 System.out.println("Your prize is a " + prize + ".");
                 return 0;

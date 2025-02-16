@@ -12,11 +12,11 @@ public class Money implements Award{
     public int displayWinnings(Players player, boolean bool) {
         if (bool == true) {
             if (!player.getLastName().equals("")) {
-                System.out.println(player.getFirstName() + " " + player.getLastName() + " that is correct. You won $1000!");
+                System.out.println(player.getFirstName() + " " + player.getLastName() + " that letter is in the phrase. You won $1000!");
                 return money + 1000;
             }
             else {
-                System.out.println(player.getFirstName() + " that is correct. You won $1000!");
+                System.out.println(player.getFirstName() + " that letter is in the phrase. You won $1000!");
                 return money + 1000;
             }
         }

@@ -11,8 +11,8 @@ public class GamePlay {
         while (playAgain.equals("y")) {
             String fName = "";
             String lName = "";
+            String guessString = "";
             Hosts host = new Hosts("Bill", "Swiftman");
-            host.randomizeNum();
             boolean correct = false;
 
             System.out.println("Hello welcome to WordGame. You will be playing this game with a name.");
@@ -28,7 +28,11 @@ public class GamePlay {
                     currentPlayers[i].setLastName(lName);
                 }
             }
-
+            
+            System.out.println("Enter the phrase for players to guess:");
+            guessString = scan.nextLine();
+            host.setPhrase(guessString);
+            
             Turn gameTurn = new Turn();
             while (correct == false) {
                 for (int i = 0; i < currentPlayers.length; i++) {
