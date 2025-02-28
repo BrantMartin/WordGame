@@ -12,7 +12,7 @@ public class GamePlay {
             String fName = "";
             String lName = "";
             String guessString = "";
-            Hosts host = new Hosts("Bill", "Swiftman");
+            Hosts host = new Hosts();
             boolean correct = false;
 
             System.out.println("Hello welcome to WordGame. You will be playing this game with a name.");

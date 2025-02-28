@@ -1,4 +1,7 @@
 import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+
 import java.util.Random;
 
 public class Turn {
@@ -13,29 +16,26 @@ public class Turn {
         int prizeType = rand.nextInt(100) + 1;
 
         if (!player.getLastName().equals("")) {
-            System.out.println("The phrase to guess is: " + host.getPlayingPhrase());
-            System.out
-                    .println(host.getFirstName() + " " + host.getLastName() + " says, \"" + player.getFirstName() + " "
+            guess = JOptionPane.showInputDialog(
+                    host.getFirstName() + " " + host.getLastName() + " says, \"" + player.getFirstName() + " "
                             + player.getLastName() + ", enter your guess for a letter in my phrase.\"");
         } else {
-            System.out.println("The phrase to guess is: " + host.getPlayingPhrase());
-            System.out.println(host.getFirstName() + " " + host.getLastName() + "says, \"" + player.getFirstName()
+            guess = JOptionPane.showInputDialog(host.getFirstName() + " " + host.getLastName() + " says, \"" + player.getFirstName()
                     + ", enter your guess for a letter in my phrase.\"");
         }
-        guess = scan.nextLine();
         if (prizeType % 2 == 0) {
             if (host.getPlayingPhrase().equals(stringToGuess)) {
                 try {
                     monPrize.setMoney(physPrize.displayWinnings(player, host.findLetters(guess)));
                 } catch (Exception e) {
-                    System.out.println("You entered more than one letter.");
+                    JOptionPane.showConfirmDialog(null, "You entered more than one letter.");
                 }
                 return true;
             } else {
                 try {
                     monPrize.setMoney(physPrize.displayWinnings(player, host.findLetters(guess)));
                 } catch (Exception e) {
-                    System.out.println("You entered more than one letter.");
+                    JOptionPane.showConfirmDialog(null, "You entered more than one letter.");
                 }
                 return false;
             }
