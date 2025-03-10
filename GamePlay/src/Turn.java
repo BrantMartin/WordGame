@@ -44,14 +44,14 @@ public class Turn {
                 try {
                     monPrize.setMoney(monPrize.displayWinnings(player, host.findLetters(guess)));
                 } catch (Exception e) {
-                    System.out.println("You entered more than one letter.");
+                    JOptionPane.showConfirmDialog(null, "You entered more than one letter.");
                 }
                 return true;
             } else {
                 try {
                     monPrize.setMoney(monPrize.displayWinnings(player, host.findLetters(guess)));
                 } catch (Exception e) {
-                    System.out.println("You entered more than one letter.");
+                    JOptionPane.showConfirmDialog(null, "You entered more than one letter.");
                 }
                 return false;
             }
