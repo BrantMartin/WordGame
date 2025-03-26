@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 
 public class GUI {
     public static Players[] currentPlayers = new Players[3];
@@ -33,7 +32,7 @@ public class GUI {
         aFrame.add(turnButton);
         SwingUtilities.updateComponentTreeUI(aFrame);
 
-        playerButton.addActionListener(e -> {
+        playerButton.addActionListener(_ -> {
             for (int i = 0; i < currentPlayers.length; i++) {
                 String fName = JOptionPane.showInputDialog("Please enter your first name Player #" + (i + 1));
                 String lName = JOptionPane.showInputDialog("Would you like to enter a last name? Leave blank if not.");
@@ -49,7 +48,7 @@ public class GUI {
             }
         });
 
-        hostButton.addActionListener(e -> {
+        hostButton.addActionListener(_ -> {
             host.setFirstName(JOptionPane.showInputDialog("Enter the host's first name"));
             host.setLastName(JOptionPane.showInputDialog("Enter the host's last name"));
             host.setPhrase(JOptionPane.showInputDialog("What will the phrase to guess be"));
@@ -58,7 +57,7 @@ public class GUI {
             SwingUtilities.updateComponentTreeUI(aFrame);
         });
 
-        turnButton.addActionListener(e -> {
+        turnButton.addActionListener(_ -> {
             boolean correct = false;
             while (correct == false) {
                 for (int i = 0; i < currentPlayers.length; i++) {
