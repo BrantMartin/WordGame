@@ -18,11 +18,10 @@ public class GUI {
         aFrame.setLayout(new GridLayout());
         aFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         aFrame.setLocationRelativeTo(null);
-        
+
         JPanel playerPanel = new JPanel(new GridBagLayout());
         JPanel hostPanel = new JPanel(new GridBagLayout());
         JPanel startPanel = new JPanel(new GridBagLayout());
-        
 
         JLabel playerOneLabel = new JLabel("Player 1: " + currentPlayers[0]);
         JLabel playerTwoLabel = new JLabel("Player 2: " + currentPlayers[1]);
@@ -31,17 +30,17 @@ public class GUI {
         JLabel gamePhraseLabel = new JLabel("Phrase: " + host.getPlayingPhrase());
 
         JButton turnButton = new JButton("Start Turn");
-        
+
         JMenuBar menuBar = new JMenuBar();
         JMenu gameMenu = new JMenu("Game");
         JMenuItem addPlayerItem = new JMenuItem("Add Player(s)");
         JMenuItem addHostItem = new JMenuItem("Add Host");
         JMenu aboutMenu = new JMenu("About");
         JMenuItem layoutItem = new JMenuItem("Layout");
-        
+
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
-        
+
         gbc.gridx = 0;
         gbc.gridy = 0;
         playerPanel.add(playerOneLabel, gbc);
@@ -52,22 +51,21 @@ public class GUI {
         gbc.gridy = 2;
         playerPanel.add(playerThreeLabel, gbc);
 
-
         gbc.gridx = 0;
         gbc.gridy = 0;
         hostPanel.add(hostLabel, gbc);
         gbc.gridx = 0;
         gbc.gridy = 1;
         hostPanel.add(gamePhraseLabel, gbc);
-        
+
         gbc.gridx = 0;
         gbc.gridy = 0;
         startPanel.add(turnButton, gbc);
-        
+
         aFrame.add(playerPanel);
         aFrame.add(hostPanel);
         aFrame.add(startPanel);
-        
+
         aFrame.setJMenuBar(menuBar);
         menuBar.add(gameMenu);
         gameMenu.add(addPlayerItem);
@@ -76,7 +74,7 @@ public class GUI {
         aboutMenu.add(layoutItem);
         gameMenu.setMnemonic(KeyEvent.VK_G);
         aboutMenu.setMnemonic(KeyEvent.VK_A);
-        
+
         SwingUtilities.updateComponentTreeUI(aFrame);
 
         addPlayerItem.addActionListener(_ -> {
@@ -104,9 +102,10 @@ public class GUI {
             gamePhraseLabel.setText("Phrase: " + host.getPlayingPhrase());
             SwingUtilities.updateComponentTreeUI(aFrame);
         });
-        
+
         layoutItem.addActionListener(_ -> {
-            JOptionPane.showMessageDialog(null, "I used the GridBagLayout because I was able to have more control\nover the layout of my application through the options that it provides.");
+            JOptionPane.showMessageDialog(null,
+                    "I used the GridBagLayout because I was able to have more control\nover the layout of my application through the options that it provides.");
         });
 
         turnButton.addActionListener(_ -> {
