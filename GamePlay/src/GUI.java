@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 
 public class GUI {
     public static Players[] currentPlayers = new Players[3];
+    public static Image circle;
 
     public static void main(String[] args) {
         currentPlayers[0] = new Players();
@@ -11,6 +12,7 @@ public class GUI {
         currentPlayers[2] = new Players();
         Hosts host = new Hosts();
         Turn gameTurn = new Turn();
+        circle = new ImageIcon("WordGame/GamePlay/images/circle.png").getImage();
 
         JFrame aFrame = new JFrame("Word Game");
         aFrame.setSize(800, 300);
@@ -18,7 +20,9 @@ public class GUI {
         aFrame.setLayout(new GridLayout());
         aFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         aFrame.setLocationRelativeTo(null);
-
+        
+        RunSound.playBackMusic("WordGame/GamePlay/music/bgmusic.wav");
+        
         JPanel playerPanel = new JPanel(new GridBagLayout());
         JPanel hostPanel = new JPanel(new GridBagLayout());
         JPanel startPanel = new JPanel(new GridBagLayout());
@@ -121,5 +125,11 @@ public class GUI {
                 }
             }
         });
+    }
+    
+    public void paint(Graphics g) {
+        Graphics2D g2d = (Graphics2D) g;
+
+        g2d.drawImage(circle, 0, 0, null);
     }
 }

@@ -28,14 +28,14 @@ public class Turn {
                 try {
                     monPrize.setMoney(physPrize.displayWinnings(player, host.findLetters(guess)));
                 } catch (Exception e) {
-                    JOptionPane.showConfirmDialog(null, "You entered more than one letter.");
+                    JOptionPane.showMessageDialog(null, "You entered more than one letter.");
                 }
                 return true;
             } else {
                 try {
                     monPrize.setMoney(physPrize.displayWinnings(player, host.findLetters(guess)));
                 } catch (Exception e) {
-                    JOptionPane.showConfirmDialog(null, "You entered more than one letter.");
+                    JOptionPane.showMessageDialog(null, "You entered more than one letter.");
                 }
                 return false;
             }
@@ -44,14 +44,14 @@ public class Turn {
                 try {
                     monPrize.setMoney(monPrize.displayWinnings(player, host.findLetters(guess)));
                 } catch (Exception e) {
-                    JOptionPane.showConfirmDialog(null, "You entered more than one letter.");
+                    JOptionPane.showMessageDialog(null, "You entered more than one letter.");
                 }
                 return true;
             } else {
                 try {
                     monPrize.setMoney(monPrize.displayWinnings(player, host.findLetters(guess)));
                 } catch (Exception e) {
-                    JOptionPane.showConfirmDialog(null, "You entered more than one letter.");
+                    JOptionPane.showMessageDialog(null, "You entered more than one letter.");
                 }
                 return false;
             }
